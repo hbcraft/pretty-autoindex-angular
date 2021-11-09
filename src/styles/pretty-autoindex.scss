@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+@import "../../node_modules/primer-css/scss/primer";
+@import "octicons";
+
+.container {
+  margin-top: 24px;
+}
+
+.octicon {
+  .files__directory & {
+    color: #80a6cd;
+  }
+
+  .files__file & {
+    color: #767676;
+  }
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  font-size: 18px;
+  margin-left: 45px;
+  margin-bottom: 12px;
+
+  .breadcrumb__root {
+    @extend .text-emphasized;
+  }
+
+  .breadcrumb__separator {
+    color: $gray;
+  }
+
+  .breadcrumb__directory {
+    &.last-one {
+      @extend .text-emphasized;
+
+      a {
+        color: $gray-dark;
+
+        &:hover {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.files {
+  color: $gray;
+
+  .columns {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .files__icon-container {
+    display: inline-block;
+    width: 25px;
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+
+  .loading__spinner,
+  .loading__spinner::before {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: $blue;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .loading__spinner {
+
+    float:left;
+    margin: 4px 10px 4px 0;
+    animation: spin 0.5s infinite linear;
+  }
+
+  .loading__spinner::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    transform: rotate(180deg);
+  }
+
+  .loading__failed {
+    color: $red;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer {
+  text-align: right;
+  border-top: 1px solid #d8d8d8;
+  padding: 16px 0;
+
+  .footer__text {
+    display: inline-block;
+    color: $gray;
+  }
+
+  .footer__mark {
+    display: inline-block;
+    margin: 0 16px;
+
+    .octicon {
+      font-size: 24px;
+    }
+  }
+}

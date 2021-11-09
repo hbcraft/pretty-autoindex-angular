@@ -1,0 +1,8 @@
+<div *ngIf="loading || failed" class="loading">
+  <div class="container">
+    <div *ngIf="loading" class="loading__spinner"></div>
+    <div *ngIf="failed" class="loading__failed">
+      Load failed.
+    </div>
+  </div>
+</div>
