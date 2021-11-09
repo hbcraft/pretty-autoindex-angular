@@ -9,3 +9,7 @@
 使用方法参考[spring-raining/pretty-autoindex](https://github.com/spring-raining/pretty-autoindex)
 
 有什么问题或者建议欢迎提交issues
+
+特别鸣谢:
+
+  [@spring-raining](https://github.com/spring-raining)
