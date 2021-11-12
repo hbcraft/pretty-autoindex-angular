@@ -1,6 +1,6 @@
 var conf = {
-  name: 'index',
-  address: 'http://file.hbcraft.cn/api',
+  name: 'pretty-autoindex-angular',
+  address: 'http://192.168.10.108:10080',
 
   visibilityOptions: {
       size: {
