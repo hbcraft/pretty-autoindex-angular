@@ -1,4 +1,4 @@
-name: NodeJS with Grunt
+name: Build project
 
 on:
   push:
@@ -13,8 +13,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
-    
+        node-version: [12.x]
+
     steps:
     - uses: actions/checkout@v2
 
@@ -23,7 +23,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        npm run build
+    - name: Install npm packages
+      run: yarn
+
+    - name: Build project
+      run: yarn build
+
+    - name: Release
+      uses: plutotcool/release@v1.0.0
+      with:
+        github_token:  ${{ secrets.GITHUB_TOKEN }}
+        publish: false
