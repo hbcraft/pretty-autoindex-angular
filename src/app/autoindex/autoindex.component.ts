@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
+import { catchError, filter, of } from "rxjs";
 
 export interface Info {
   name: string;
@@ -43,13 +44,20 @@ export class AutoindexComponent implements OnInit {
     const address = this.conf.address + this.path;
     this.http.get<FilesInfo>(address, {
       observe: 'response'
-    }).subscribe((v)=>{
-      if (v.status !== 200) {
+    }).subscribe({
+      next: (v)=>{
+        if (v.status !== 200) {
+          this.failed = true;
+        } else {
+          this.files = v.body
+        }
+        this.loading = false;
+      },
+      error: (err)=>{
+        console.error(err)
         this.failed = true;
-      } else {
-        this.files = v.body
+        this.loading = false;
       }
-      this.loading = false;
     })
   }
 }
