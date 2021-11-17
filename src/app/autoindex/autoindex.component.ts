@@ -37,6 +37,12 @@ export class AutoindexComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) {}
   ngOnInit(): void {
     this.fetchFileInfo()
+    // 在路由结束时刷新文件信息
+    this.router.events.pipe(
+      filter((v)=>v instanceof NavigationEnd)
+    ).subscribe(()=>{
+      this.fetchFileInfo();
+    });
   }
   fetchFileInfo() {
     this.failed = false;
