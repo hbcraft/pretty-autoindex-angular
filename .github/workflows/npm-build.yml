@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -29,8 +29,14 @@ jobs:
     - name: Build project
       run: yarn build
 
+    - name: Set version env
+      run: echo "RELEASE_VERSION=`node -p "require('./package.json').version"`" >> $GITHUB_ENV
+
     - name: Release
-      uses: plutotcool/release@v1.0.0
+      uses: marvinpinto/action-automatic-releases@latest
       with:
-        github_token:  ${{ secrets.GITHUB_TOKEN }}
-        publish: false
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        automatic_release_tag: latest-${{ env.RELEASE_VERSION }}
+        prerelease: false
+        title: ${{ env.RELEASE_VERSION }}
+        files: dist/*
