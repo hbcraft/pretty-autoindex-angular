@@ -44,4 +44,4 @@ jobs:
         automatic_release_tag: latest-${{ env.RELEASE_VERSION }}
         prerelease: false
         title: ${{ env.RELEASE_VERSION }}
-        files: dist-${RELEASE_VERSION}
+        files: dist-*.zip
