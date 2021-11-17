@@ -37,7 +37,7 @@ jobs:
     - name: Packaging project
       run: |
         cd dist
-        zip dist-${RELEASE_VERSION}.zip ./*
+        zip ../dist-${RELEASE_VERSION}.zip ./*
 
     - name: Release
       uses: marvinpinto/action-automatic-releases@latest
