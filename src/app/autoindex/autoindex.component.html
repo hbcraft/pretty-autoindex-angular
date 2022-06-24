@@ -1,4 +1,4 @@
-<loading [loading]="loading" [failed]="failed"></loading>
+<app-loading [loading]="loading" [failed]="failed"></app-loading>
 <div class="app">
   <div class="breadcrumb">
     <span class="breadcrumb__root">
@@ -18,25 +18,19 @@
   <ul *ngIf="files !== null"
       class="files menu">
     <ng-container *ngIf="pathArray.length > 0">
-      <directory name=".." [path]="'/' + pathArray.slice(0, -1).join('/')">
-      </directory>
+      <app-item
+        type="directory"
+        name=".."
+        [path]="'/' + pathArray.slice(0, -1).join('/')"
+      ></app-item>
     </ng-container>
-    <ng-container *ngFor="let file of files">
-      <directory
-        *ngIf="file.type === 'directory'"
-        icon="file-directory"
-        [name]="file.name"
-        [path]="(path !== '/' ? path : '') + '/' + file.name"
-        [mtime]="file.mtime">
-      </directory>
-      <file
-        *ngIf="file.type === 'file'"
-        icon="file-text"
-        [path]="(path !== '/' ? path : '') + '/' + file.name"
-        [name]="file.name"
-        [mtime]="file.mtime"
-        [size]="file.size">
-      </file>
-    </ng-container>
+    <app-item
+      *ngFor="let file of files"
+      [type]="file.type"
+      [name]="file.name"
+      [path]="(path !== '/' ? path : '') + '/' + file.name"
+      [mtime]="file.mtime"
+      [size]="file.type === 'file' ? file.size : undefined"
+    ></app-item>
   </ul>
 </div>

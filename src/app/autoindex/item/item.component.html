@@ -1,9 +1,9 @@
-<li class="files__file menu-item flex-table">
+<li class="files__directory menu-item columns">
   <div class="flex-table-item flex-table-item-primary">
     <div class="files__icon-container">
       <span *ngIf="icon" class="octicon octicon-{{ icon }}"></span>
     </div>
-    <a [href]="link">{{ name }}</a>
+    <a>{{ name }}</a>
   </div>
   <div *ngFor="let k of keys" class="flex-table-item pr-1 text-right">
     <ng-container *ngIf="visibilityOptions[k]['use']">

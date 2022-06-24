@@ -1,28 +1,22 @@
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AutoindexComponent } from './autoindex/autoindex.component';
-import { DirectoryComponent } from './autoindex/directory/directory.component';
-import { FileComponent } from './autoindex/file/file.component';
-import { LoadingComponent } from './autoindex/loading/loading.component';
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from './app.component'
+import { AutoindexComponent } from './autoindex/autoindex.component'
+import { ItemComponent } from './autoindex/item/item.component'
+import { LoadingComponent } from './autoindex/loading/loading.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     AutoindexComponent,
     LoadingComponent,
-    DirectoryComponent,
-    FileComponent
+    ItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
