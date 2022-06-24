@@ -96,9 +96,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "pretty-autoindex-angular"
+  "defaultProject": "pretty-autoindex-angular",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
