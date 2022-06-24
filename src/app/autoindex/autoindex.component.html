@@ -5,18 +5,19 @@
       <a routerLink="/">{{ conf.name }}</a>
     </span>
     <span class="breadcrumb__separator">/</span>
-    <ng-container *ngFor="let dir of pathArray;let i = index">
-      <span class="breadcrumb__directory"
-            [class]="{ 'last-one': pathArray.length === i + 1}">
-        <a [routerLink]="'/' + pathArray.slice(0, i+1).join('/')">
+    <ng-container *ngFor="let dir of pathArray; let i = index">
+      <span
+        class="breadcrumb__directory"
+        [class]="{ 'last-one': pathArray.length === i + 1 }"
+      >
+        <a [routerLink]="'/' + pathArray.slice(0, i + 1).join('/')">
           {{ dir }}
         </a>
       </span>
       <span class="breadcrumb__separator">/</span>
     </ng-container>
   </div>
-  <ul *ngIf="files !== null"
-      class="files menu">
+  <ul *ngIf="files !== null" class="files menu">
     <ng-container *ngIf="pathArray.length > 0">
       <app-item
         type="directory"

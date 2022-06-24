@@ -12,4 +12,4 @@ var conf = {
       type: 'moment' //raw, moment, both
     }
   }
-};
+}

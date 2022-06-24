@@ -23,7 +23,7 @@ export interface DirectoryInfo extends Info {
 export type FilesInfo = Array<FileInfo | DirectoryInfo>
 
 @Component({
-  templateUrl: './autoindex.component.html',
+  templateUrl: './autoindex.component.html'
 })
 export class AutoindexComponent implements OnInit {
   conf: typeof conf = conf
@@ -52,7 +52,7 @@ export class AutoindexComponent implements OnInit {
     const address = this.conf.address + this.path
     this.http
       .get<FilesInfo>(address, {
-        observe: 'response',
+        observe: 'response'
       })
       .subscribe({
         next: (v) => {
@@ -67,7 +67,7 @@ export class AutoindexComponent implements OnInit {
           console.error(err)
           this.failed = true
           this.loading = false
-        },
+        }
       })
   }
 }

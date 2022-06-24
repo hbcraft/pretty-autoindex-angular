@@ -1,10 +1,10 @@
 declare var conf: {
-  name: string;
-  address: string;
+  name: string
+  address: string
   visibilityOptions: PropertyConfigs
 }
 interface PropertyConfig {
-  use: boolean;
+  use: boolean
 }
 interface SizeConfig extends PropertyConfig {
   type: 'raw' | 'readable' | 'both'
@@ -14,10 +14,10 @@ interface DateConfig extends PropertyConfig {
 }
 type Configs = SizeConfig | DateConfig
 interface PropertyConfigs {
-  size: SizeConfig,
+  size: SizeConfig
   date: DateConfig
 }
 interface PropertyValue {
-  size?: number;
-  date: string;
+  size?: number
+  date?: string
 }

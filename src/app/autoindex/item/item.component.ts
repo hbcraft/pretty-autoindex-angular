@@ -2,7 +2,7 @@ import {
   Component,
   HostListener,
   Input,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core'
 import { Router } from '@angular/router'
 import { Helper } from 'src/app/utils/helper'
@@ -12,7 +12,7 @@ import { FileType } from '../autoindex.component'
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class ItemComponent {
   @Input() type!: FileType

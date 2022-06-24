@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-@import "../../node_modules/primer-css/scss/primer";
-@import "octicons";
+@import '../../node_modules/primer-css/scss/primer';
+@import 'octicons';
 
 .container {
   margin-top: 24px;
@@ -86,8 +86,7 @@
   }
 
   .loading__spinner {
-
-    float:left;
+    float: left;
     margin: 4px 10px 4px 0;
     animation: spin 0.5s infinite linear;
   }
