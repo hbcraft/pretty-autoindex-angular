@@ -37,7 +37,7 @@ jobs:
       - name: Packaging project
         run: |
           cd dist
-          zip -r ../dist-${RELEASE_VERSION}.zip ./*
+          zip -r ../dist.zip ./*
 
       - name: Release
         uses: marvinpinto/action-automatic-releases@latest
@@ -46,4 +46,4 @@ jobs:
           automatic_release_tag: latest-${{ env.RELEASE_VERSION }}
           prerelease: false
           title: ${{ env.RELEASE_VERSION }}
-          files: dist-*.zip
+          files: dist.zip
