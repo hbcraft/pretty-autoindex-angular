@@ -34,7 +34,10 @@ export class AutoindexComponent implements OnInit {
     return this.router.url
   }
   get pathArray() {
-    return this.path.split('/').filter((v) => v !== '')
+    return this.path
+      .split('/')
+      .filter((v) => v !== '')
+      .map((v) => decodeURIComponent(v))
   }
   constructor(private router: Router, private http: HttpClient) {}
   ngOnInit(): void {
