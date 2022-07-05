@@ -1,4 +1,5 @@
 import * as moment from 'moment'
+moment.locale(window.navigator.language.toLowerCase())
 export class Helper {
   static getReadableSize(size: Required<PropertyValue>['size']): string {
     const i = Math.floor(Math.log(size) / Math.log(1024))
