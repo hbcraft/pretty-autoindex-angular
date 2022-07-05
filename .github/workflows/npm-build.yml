@@ -32,9 +32,7 @@ jobs:
       - name: Set version env
         run: |
           export RELEASE_VERSION=`node -p "require('./package.json').version"`
-          export MAJOR_VERSION=`node -p "require('./package.json').version.split('.')[0]"`
           echo "RELEASE_VERSION=${RELEASE_VERSION}" >> $GITHUB_ENV
-          echo "MAJOR_VERSION=${MAJOR_VERSION}" >> $GITHUB_ENV
 
       - name: Packaging project
         run: |
@@ -45,7 +43,7 @@ jobs:
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          automatic_release_tag: latest-${{ env.MAJOR_VERSION }}
+          automatic_release_tag: latest
           prerelease: false
           title: ${{ env.RELEASE_VERSION }}
           files: dist.zip
