@@ -52,7 +52,11 @@ export class AutoindexComponent implements OnInit {
   fetchFileInfo() {
     this.failed = false
     this.loading = true
-    const address = this.conf.address + this.path
+    // const address = this.conf.address + this.path
+    const address =
+      (this.conf.useCurrentAddress
+        ? location.origin + this.conf.suffix
+        : this.conf.address) + this.path
     this.http
       .get<FilesInfo>(address, {
         observe: 'response'

@@ -1,6 +1,8 @@
 declare var conf: {
   name: string
   address: string
+  useCurrentAddress: boolean
+  suffix: string
   visibilityOptions: PropertyConfigs
 }
 interface PropertyConfig {

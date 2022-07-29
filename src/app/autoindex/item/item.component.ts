@@ -37,7 +37,11 @@ export class ItemComponent {
   @HostListener('click')
   onHostClick() {
     if (this.type === 'file') {
-      window.open(`${this.conf.address}${this.path}`, '_blank')
+      const url =
+        (this.conf.useCurrentAddress
+          ? location.origin + this.conf.suffix
+          : this.conf.address) + this.path
+      window.open(url, '_blank')
     } else {
       this._router.navigateByUrl(this.path)
     }

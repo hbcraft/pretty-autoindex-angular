@@ -1,6 +1,8 @@
 var conf = {
   name: 'pretty-autoindex-angular',
   address: 'http://192.168.10.108:10080',
+  useCurrentAddress: false,
+  suffix: '',
 
   visibilityOptions: {
     size: {
